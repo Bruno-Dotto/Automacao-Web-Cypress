@@ -1,62 +1,55 @@
 /// <reference types="cypress"/>  
 import { faker } from '@faker-js/faker';
+import { acessarCadastro, cadastrar, preencherEmail, preencherNome, preencherSenha, validarCadastroErro, validarCadastroSucesso } from '../support/pages/cadastro_usuario_page';
 
 describe('Testes de Cadastro', () => {
 
     beforeEach(() => {
-        cy.visit('/register');
+        //cy.visit('/register');
+        acessarCadastro();
     })
 
     it('Cadastro com Sucesso', () => {
 
-        cy.get('#user').type(faker.person.firstName())
-
-        cy.get('#email').type(faker.internet.email())
-
-        cy.get('#password').type(faker.string.numeric(6))
-
-        cy.get('#btnRegister').click()
-
-        cy.get('#swal2-title').should('be.visible').should('have.text', 'Cadastro realizado!') //Valida se o elemento está visível e se contém o texto esperado
+        preencherNome(faker.person.firstName());
+        preencherEmail(faker.internet.email());
+        preencherSenha(faker.string.numeric(6));
+        cadastrar();
+        validarCadastroSucesso();
     })
 
     it('Cadastro com Usuário em Branco', () => {
 
-        cy.get('#user').clear().should('have.value', '')
-
-        cy.get('#email').type(faker.internet.email())
-
-        cy.get('#password').type(faker.string.numeric(6))
-
-        cy.get('#btnRegister').click()
-
-        cy.get('#errorMessageFirstName').should('be.visible').should('have.text', 'O campo nome deve ser prenchido') //Valida se o elemento está visível e se contém o texto esperado
+        preencherEmail(faker.internet.email());
+        preencherSenha(faker.string.numeric(6));
+        cadastrar();
+        validarCadastroErro('#errorMessageFirstName' ,'O campo nome deve ser prenchido');
     })
 
     it('Cadastro com E-mail em Branco', () => {
 
-        cy.get('#user').type(faker.person.firstName())
+        preencherNome(faker.person.firstName());
 
-        cy.get('#email').clear().should('have.value', '')
+        //cy.get('#email').clear().should('have.value', '')
 
-        cy.get('#password').type(faker.string.numeric(6))
+        preencherSenha(faker.string.numeric(6));
 
-        cy.get('#btnRegister').click()
+        cadastrar();
 
-        cy.get('#errorMessageFirstName').should('be.visible').should('have.text', 'O campo e-mail deve ser prenchido corretamente') //Valida se o elemento está visível e se contém o texto esperado
+        validarCadastroErro('#errorMessageFirstName' ,'O campo e-mail deve ser prenchido corretamente');
     })
 
     it('Cadastro com Senha em Branco', () => {
 
-        cy.get('#user').type(faker.person.firstName())
+        preencherNome(faker.person.firstName());
 
-        cy.get('#email').type(faker.internet.email())
+        preencherEmail(faker.internet.email());
 
-        cy.get('#password').clear().should('have.value', '')
+        //cy.get('#password').clear().should('have.value', '')
 
-        cy.get('#btnRegister').click()
+        cadastrar();
 
-        cy.get('#errorMessageFirstName').should('be.visible').should('have.text', 'O campo senha deve ter pelo menos 6 dígitos') //Valida se o elemento está visível e se contém o texto esperado
+        validarCadastroErro('#errorMessageFirstName' ,'O campo senha deve ter pelo menos 6 dígitos');
 
     })
 })

@@ -14,4 +14,6 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import './checkout_commands'
+import './login_commands'
 import './commands'
