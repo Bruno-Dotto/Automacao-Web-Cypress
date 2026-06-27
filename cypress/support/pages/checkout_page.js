@@ -53,35 +53,6 @@ export function clicarSalvar() {
     cy.get('.checkout-area-bg > .theme-btn-one').click()
 }
 
-// export function pagarPaypal(checkbox) {
-//     cy.get('#headingThree > .collapsed > [name="payment"]').check(checkbox)
-// }
-
-// export function pagarMobileBank(checkbox) {
-//     cy.get('#headingTwo > div > [name="payment"]').check(checkbox)
-
-// }
-
-// export function pagarDirectBankTransfer(checkbox) {
-//     cy.get('#headingOne > div > [name="payment"]').check(checkbox)
-
-// }
-
-// export function validarSelecaoPaypal() {
-//     cy.get('#collapseThree > .payment_body > p')
-//         .should('contain.text', 'Some placeholder content for the second accordion panel. This panel is hidden by default')
-// }
-
-// export function validarSelecaoMobileBank() {
-//     cy.get('#collapseTwo > .payment_body > p')
-//         .should('contain.text', 'Direct Mobile Transfer')
-// }
-
-// export function validarSelecaoDirectBankTransfer() {
-//     cy.get('#collapseOne > .payment_body > p')
-//         .should('contain.text', 'Direct Bank Transfer')
-//}
-
 export function selecionarMetodoPagamento(metodo) {
 
     const pagamentos = {
