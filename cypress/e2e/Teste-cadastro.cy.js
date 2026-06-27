@@ -5,7 +5,6 @@ import { acessarCadastro, cadastrar, preencherEmail, preencherNome, preencherSen
 describe('Testes de Cadastro', () => {
 
     beforeEach(() => {
-        //cy.visit('/register');
         acessarCadastro();
     })
 
@@ -23,33 +22,23 @@ describe('Testes de Cadastro', () => {
         preencherEmail(faker.internet.email());
         preencherSenha(faker.string.numeric(6));
         cadastrar();
-        validarCadastroErro('#errorMessageFirstName' ,'O campo nome deve ser prenchido');
+        validarCadastroErro('#errorMessageFirstName', 'O campo nome deve ser prenchido');
     })
 
     it('Cadastro com E-mail em Branco', () => {
 
         preencherNome(faker.person.firstName());
-
-        //cy.get('#email').clear().should('have.value', '')
-
         preencherSenha(faker.string.numeric(6));
-
         cadastrar();
-
-        validarCadastroErro('#errorMessageFirstName' ,'O campo e-mail deve ser prenchido corretamente');
+        validarCadastroErro('#errorMessageFirstName', 'O campo e-mail deve ser prenchido corretamente');
     })
 
     it('Cadastro com Senha em Branco', () => {
 
         preencherNome(faker.person.firstName());
-
         preencherEmail(faker.internet.email());
-
-        //cy.get('#password').clear().should('have.value', '')
-
         cadastrar();
-
-        validarCadastroErro('#errorMessageFirstName' ,'O campo senha deve ter pelo menos 6 dígitos');
+        validarCadastroErro('#errorMessageFirstName', 'O campo senha deve ter pelo menos 6 dígitos');
 
     })
 })
