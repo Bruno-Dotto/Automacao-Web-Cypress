@@ -4,11 +4,6 @@ export function acessarCheckout() {
     cy.visit('/checkout-one');
 }
 
-export function validarAcessoPaginaCheckout(seletor, mensagem) {
-    cy.get(seletor)
-        .should('be.visible')
-        .should('have.text', mensagem)
-}
 export function preencherFirstName(nome) {
     cy.preencheCampo('#fname', nome)
 }
@@ -89,9 +84,31 @@ export function placeOrder() {
     cy.get(':nth-child(2) > :nth-child(2) > .theme-btn-one').click()
 }
 
-export function validarPedidoSucesso(seletor, mensagem) {
-    cy.get(seletor)
-        .should('be.visible')
-        .should('have.text', mensagem)
+const mensagens = {
+
+    paginaCheckout: {
+        seletor: '.checkout-area-bg > .check-heading > h3',
+        texto: 'Billings Information'
+    },
+
+    pedidoSucesso: {
+        seletor: '.offer_modal_left > h3',
+        texto: 'Congrats! Your order was created with sucess!'
+    },
 }
 
+function validarMensagem(tipo) {
+
+    cy.get(mensagens[tipo].seletor)
+        .should('be.visible')
+        .should('contain.text', mensagens[tipo].texto);
+
+}
+
+export function validarAcessoPaginaCheckout() {
+    validarMensagem('paginaCheckout');
+}
+
+export function validarPedidoSucesso() {
+    validarMensagem('pedidoSucesso');
+}

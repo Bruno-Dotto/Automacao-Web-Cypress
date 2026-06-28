@@ -1,69 +1,69 @@
 /// <reference types="cypress"/>  
 import { faker } from '@faker-js/faker';
+import {
+    acessarLogin,
+    preencherEmail,
+    preencherSenha,
+    clicarLogin,
+    criarConta,
+    validarMensagem,
+    validarTelaCadastro
+} from '../support/pages/login_page';
 
 describe('Testes de Login', () => {
 
     beforeEach(() => {
-        cy.acessarLogin();
-    })
+        acessarLogin();
+    });
 
     it('Login com Sucesso', () => {
 
-        cy.preencherEmail(faker.internet.email());
+        preencherEmail(faker.internet.email());
+        preencherSenha(faker.string.numeric(6));
+        clicarLogin();
+        validarMensagem('loginSucesso');
 
-        cy.preencherSenha(faker.string.numeric(6));
-
-        cy.clicarLogin();
-
-        cy.assertMensagem('#swal2-title', 'Login realizado');
-    })
+    });
 
     it('Login com E-mail Inválido', () => {
 
-        cy.preencherEmail(faker.string.numeric(6));
+        preencherEmail(faker.string.numeric(6));
+        preencherSenha(faker.string.numeric(6));
+        clicarLogin();
+        validarMensagem('emailInvalido');
 
-        cy.preencherSenha(faker.string.numeric(6));
-
-        cy.clicarLogin();
-
-        cy.assertMensagem('.invalid_input', 'E-mail inválido.');
-    })
+    });
 
     it('Login com Senha Inválida', () => {
 
-        cy.preencherEmail(faker.internet.email());
+        preencherEmail(faker.internet.email());
+        preencherSenha(faker.string.numeric(4));
+        clicarLogin();
+        validarMensagem('senhaInvalida');
 
-        cy.preencherSenha(faker.string.numeric(4));
-
-        cy.clicarLogin();
-
-        cy.assertMensagem('.invalid_input', 'Senha inválida.');
-    })
+    });
 
     it('Login com E-mail Vazio', () => {
 
-        cy.preencherSenha(faker.string.numeric(6));
+        preencherSenha(faker.string.numeric(6));
+        clicarLogin();
+        validarMensagem('emailInvalido');
 
-        cy.clicarLogin();
-
-        cy.assertMensagem('.invalid_input', 'E-mail inválido.')
-    })
+    });
 
     it('Login com Senha Vazia', () => {
 
-        cy.preencherEmail(faker.internet.email());
+        preencherEmail(faker.internet.email());
+        clicarLogin();
+        validarMensagem('senhaInvalida');
 
-        cy.clicarLogin();
+    });
 
-        cy.assertMensagem('.invalid_input', 'Senha inválida.');
-    })
+    it('Deve abrir a tela de cadastro', () => {
 
-    it('Botão Ainda não tem Conta', () => {
+        criarConta();
+        validarTelaCadastro();
 
-        cy.criarConta();
+    });
 
-        cy.assertNovaConta('h3', 'Cadastro de usuário');
-
-    })
-
-})
+});
