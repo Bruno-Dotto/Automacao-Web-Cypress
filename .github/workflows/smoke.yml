@@ -1,0 +1,17 @@
+name: Cypress Smoke Tests
+
+on:
+  push:
+    branches:
+      - feature/CI-CD
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cypress-io/github-action@v7
+        with:
+          command: npx cypress run --env grepTags=@smoke
