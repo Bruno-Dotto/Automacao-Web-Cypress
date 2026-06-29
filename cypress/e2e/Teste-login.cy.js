@@ -17,7 +17,7 @@ describe('Testes de Login', () => {
         acessarLogin();
     });
 
-    it('Login com Sucesso', { tags: '@smoke' }, () => {
+    it('Login com Sucesso', { tags: ['@smoke', '@login'] }, () => {
 
         preencherEmail(faker.internet.email());
         preencherSenha(faker.string.numeric(6));
