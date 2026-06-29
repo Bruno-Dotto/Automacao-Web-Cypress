@@ -17,3 +17,7 @@
 import './checkout_commands'
 import './login_commands'
 import './commands'
+
+import { register } from '@cypress/grep'
+
+register()

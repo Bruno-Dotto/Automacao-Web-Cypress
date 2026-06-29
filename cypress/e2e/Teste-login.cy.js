@@ -1,5 +1,6 @@
 /// <reference types="cypress"/>  
 import { faker } from '@faker-js/faker';
+
 import {
     acessarLogin,
     preencherEmail,
@@ -16,7 +17,7 @@ describe('Testes de Login', () => {
         acessarLogin();
     });
 
-    it('Login com Sucesso', () => {
+    it('Login com Sucesso', { tags: ['@smoke', '@login'] }, () => {
 
         preencherEmail(faker.internet.email());
         preencherSenha(faker.string.numeric(6));
@@ -25,7 +26,7 @@ describe('Testes de Login', () => {
 
     });
 
-    it('Login com E-mail Inválido', () => {
+    it('Login com E-mail Inválido', { tags: ['@smoke', '@login'] }, () => {
 
         preencherEmail(faker.string.numeric(6));
         preencherSenha(faker.string.numeric(6));
@@ -34,7 +35,7 @@ describe('Testes de Login', () => {
 
     });
 
-    it('Login com Senha Inválida', () => {
+    it('Login com Senha Inválida', { tags: ['@smoke', '@login'] }, () => {
 
         preencherEmail(faker.internet.email());
         preencherSenha(faker.string.numeric(4));
@@ -43,7 +44,7 @@ describe('Testes de Login', () => {
 
     });
 
-    it('Login com E-mail Vazio', () => {
+    it('Login com E-mail Vazio', { tags: ['@smoke', '@login'] }, () => {
 
         preencherSenha(faker.string.numeric(6));
         clicarLogin();
@@ -51,7 +52,7 @@ describe('Testes de Login', () => {
 
     });
 
-    it('Login com Senha Vazia', () => {
+    it('Login com Senha Vazia', { tags: ['@smoke', '@login'] }, () => {
 
         preencherEmail(faker.internet.email());
         clicarLogin();
@@ -59,7 +60,7 @@ describe('Testes de Login', () => {
 
     });
 
-    it('Deve abrir a tela de cadastro', () => {
+    it('Deve abrir a tela de cadastro', { tags: ['@smoke', '@login'] }, () => {
 
         criarConta();
         validarTelaCadastro();
