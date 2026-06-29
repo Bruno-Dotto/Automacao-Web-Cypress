@@ -1,5 +1,6 @@
 /// <reference types="cypress"/>  
 import { faker } from '@faker-js/faker';
+
 import {
     acessarLogin,
     preencherEmail,
@@ -16,7 +17,7 @@ describe('Testes de Login', () => {
         acessarLogin();
     });
 
-    it('Login com Sucesso', () => {
+    it('Login com Sucesso', { tags: '@smoke' }, () => {
 
         preencherEmail(faker.internet.email());
         preencherSenha(faker.string.numeric(6));

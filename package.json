@@ -13,5 +13,8 @@
   "dependencies": {
     "@faker-js/faker": "^10.5.0",
     "cypress": "^15.17.0"
+  },
+  "devDependencies": {
+    "@cypress/grep": "^6.0.2"
   }
 }
