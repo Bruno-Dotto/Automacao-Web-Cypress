@@ -293,8 +293,8 @@ Após cada execução são gerados:
 - Login com sucesso
 - E-mail inválido
 - Senha inválida
-- Campo e-mail obrigatório
-- Campo senha obrigatório
+- E-mail em branco
+- Senha em branco
 - Navegação para cadastro
 
 ---
@@ -302,9 +302,9 @@ Após cada execução são gerados:
 ## Cadastro
 
 - Cadastro com sucesso
-- Nome obrigatório
-- E-mail obrigatório
-- Senha obrigatória
+- Usuário em branco
+- E-mail em branco
+- Senha em branco
 
 ---
 
@@ -344,11 +344,6 @@ Após cada execução são gerados:
 - [x] GitHub Actions
 - [x] Mochawesome
 - [x] GitHub Pages
-- [ ] ESLint
-- [ ] Prettier
-- [ ] Husky
-- [ ] Testes Paralelos
-- [ ] Cross Browser
 - [ ] Dashboard de Métricas
 - [ ] Integração com Playwright
 - [ ] Integração com Maestro
