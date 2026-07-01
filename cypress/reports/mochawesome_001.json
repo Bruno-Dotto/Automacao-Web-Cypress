@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-01T00:01:58.372Z",
+    "end": "2026-07-01T00:02:03.560Z",
+    "duration": 5188,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9c848710-0a1e-4573-92b7-9a6468e9748a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Teste-cadastro.cy.js",
+      "file": "cypress\\e2e\\Teste-cadastro.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "688b58b3-85e3-4e64-bd71-deb5d814176e",
+          "title": "Testes de Cadastro",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cadastro com Sucesso",
+              "fullTitle": "Testes de Cadastro Cadastro com Sucesso",
+              "timedOut": null,
+              "duration": 1759,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _cadastro_usuario_page.preencherNome)(_faker.faker.person.firstName());\n(0, _cadastro_usuario_page.preencherEmail)(_faker.faker.internet.email());\n(0, _cadastro_usuario_page.preencherSenha)(_faker.faker.string.numeric(6));\n(0, _cadastro_usuario_page.cadastrar)();\n(0, _cadastro_usuario_page.validarCadastroSucesso)();",
+              "err": {},
+              "uuid": "319b5b46-ea3c-4415-a1c7-cb0b6f73bf19",
+              "parentUUID": "688b58b3-85e3-4e64-bd71-deb5d814176e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com Usuário em Branco",
+              "fullTitle": "Testes de Cadastro Cadastro com Usuário em Branco",
+              "timedOut": null,
+              "duration": 1186,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _cadastro_usuario_page.preencherEmail)(_faker.faker.internet.email());\n(0, _cadastro_usuario_page.preencherSenha)(_faker.faker.string.numeric(6));\n(0, _cadastro_usuario_page.cadastrar)();\n(0, _cadastro_usuario_page.validarCadastroErro)('#errorMessageFirstName', 'O campo nome deve ser prenchido');",
+              "err": {},
+              "uuid": "ec6d3b80-ef2b-46d1-9a9f-8a31a7ffc116",
+              "parentUUID": "688b58b3-85e3-4e64-bd71-deb5d814176e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com E-mail em Branco",
+              "fullTitle": "Testes de Cadastro Cadastro com E-mail em Branco",
+              "timedOut": null,
+              "duration": 983,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _cadastro_usuario_page.preencherNome)(_faker.faker.person.firstName());\n(0, _cadastro_usuario_page.preencherSenha)(_faker.faker.string.numeric(6));\n(0, _cadastro_usuario_page.cadastrar)();\n(0, _cadastro_usuario_page.validarCadastroErro)('#errorMessageFirstName', 'O campo e-mail deve ser prenchido corretamente');",
+              "err": {},
+              "uuid": "b2d8473b-299a-442b-b379-7f161a29123d",
+              "parentUUID": "688b58b3-85e3-4e64-bd71-deb5d814176e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com Senha em Branco",
+              "fullTitle": "Testes de Cadastro Cadastro com Senha em Branco",
+              "timedOut": null,
+              "duration": 1177,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _cadastro_usuario_page.preencherNome)(_faker.faker.person.firstName());\n(0, _cadastro_usuario_page.preencherEmail)(_faker.faker.internet.email());\n(0, _cadastro_usuario_page.cadastrar)();\n(0, _cadastro_usuario_page.validarCadastroErro)('#errorMessageFirstName', 'O campo senha deve ter pelo menos 6 dígitos');",
+              "err": {},
+              "uuid": "f8203070-8799-4a2e-9140-cdbdd4da16d0",
+              "parentUUID": "688b58b3-85e3-4e64-bd71-deb5d814176e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "319b5b46-ea3c-4415-a1c7-cb0b6f73bf19",
+            "ec6d3b80-ef2b-46d1-9a9f-8a31a7ffc116",
+            "b2d8473b-299a-442b-b379-7f161a29123d",
+            "f8203070-8799-4a2e-9140-cdbdd4da16d0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5105,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "quiet": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

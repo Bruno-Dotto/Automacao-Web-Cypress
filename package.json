@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"scripts": {
+  "cy:open": "cypress open",
+  "cy:run": "cypress run",
+  "smoke": "cypress run --env grepTags=@smoke,grepFilterSpecs=true",
+  "regression": "cypress run",
+  "clean-report": "node -e \"require('fs').rmSync('cypress/reports',{recursive:true,force:true});require('fs').mkdirSync('cypress/reports',{recursive:true})\"",
+  "merge-report": "mochawesome-merge \"cypress/reports/mochawesome*.json\" -o cypress/reports/report.json",
+  "generate-report": "marge cypress/reports/report.json --reportDir cypress/reports --reportFilename index --inline",
+  "report": "npm run merge-report && npm run generate-report",
+  "smoke-report": "npm run clean-report && npm run smoke && npm run report"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,6 +23,9 @@
     "cypress": "^15.17.0"
   },
   "devDependencies": {
-    "@cypress/grep": "^6.0.2"
+    "@cypress/grep": "^6.0.2",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
   }
 }

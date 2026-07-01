@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-01T00:02:05.570Z",
+    "end": "2026-07-01T00:02:19.211Z",
+    "duration": 13641,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d95c8f99-8ef5-40f3-b57a-40c3153398fa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Teste-checkout.cy.js",
+      "file": "cypress\\e2e\\Teste-checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9309df6c-1241-4d39-9f02-aadf480e3bc9",
+          "title": "Testes de Checkout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Checkout com sucesso usando paypal",
+              "fullTitle": "Testes de Checkout Checkout com sucesso usando paypal",
+              "timedOut": null,
+              "duration": 4646,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Preencher as informações paga Pagamento e salvar\n(0, _checkout_page.preencherFirstName)(_faker.faker.person.firstName());\n(0, _checkout_page.preencherLastName)(_faker.faker.person.lastName());\n(0, _checkout_page.preencherCompany)(_faker.faker.company.name());\n(0, _checkout_page.preencherEmail)(_faker.faker.internet.email());\n(0, _checkout_page.selecionarCountry)(1);\n(0, _checkout_page.selecionarCity)(2);\n(0, _checkout_page.preencherZipCode)(_faker.faker.string.numeric(9));\n(0, _checkout_page.preencherFullAdress)(`${_faker.faker.location.street()}, ${_faker.faker.location.buildingNumber()}, ${_faker.faker.location.secondaryAddress()}`);\n(0, _checkout_page.preencherAdicionalNotes)(_faker.faker.lorem.lines({\n  min: 1,\n  max: 3\n}));\n(0, _checkout_page.marcarSalvarDados)();\n(0, _checkout_page.clicarSalvar)();\n//Escolher a opção de pagamento validar ela e finalizar pedido\n(0, _checkout_page.selecionarMetodoPagamento)(metodo);\n(0, _checkout_page.validarSelecaoMetodoPagamento)(metodo);\n(0, _checkout_page.placeOrder)();\n(0, _checkout_page.validarPedidoSucesso)();",
+              "err": {},
+              "uuid": "c8f0d2a7-33e8-464f-bc4c-fd01d04c7a6a",
+              "parentUUID": "9309df6c-1241-4d39-9f02-aadf480e3bc9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checkout com sucesso usando mobileBanking",
+              "fullTitle": "Testes de Checkout Checkout com sucesso usando mobileBanking",
+              "timedOut": null,
+              "duration": 4207,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Preencher as informações paga Pagamento e salvar\n(0, _checkout_page.preencherFirstName)(_faker.faker.person.firstName());\n(0, _checkout_page.preencherLastName)(_faker.faker.person.lastName());\n(0, _checkout_page.preencherCompany)(_faker.faker.company.name());\n(0, _checkout_page.preencherEmail)(_faker.faker.internet.email());\n(0, _checkout_page.selecionarCountry)(1);\n(0, _checkout_page.selecionarCity)(2);\n(0, _checkout_page.preencherZipCode)(_faker.faker.string.numeric(9));\n(0, _checkout_page.preencherFullAdress)(`${_faker.faker.location.street()}, ${_faker.faker.location.buildingNumber()}, ${_faker.faker.location.secondaryAddress()}`);\n(0, _checkout_page.preencherAdicionalNotes)(_faker.faker.lorem.lines({\n  min: 1,\n  max: 3\n}));\n(0, _checkout_page.marcarSalvarDados)();\n(0, _checkout_page.clicarSalvar)();\n//Escolher a opção de pagamento validar ela e finalizar pedido\n(0, _checkout_page.selecionarMetodoPagamento)(metodo);\n(0, _checkout_page.validarSelecaoMetodoPagamento)(metodo);\n(0, _checkout_page.placeOrder)();\n(0, _checkout_page.validarPedidoSucesso)();",
+              "err": {},
+              "uuid": "d6dcc9b7-f9d8-45f5-8cc8-6a7f22658a56",
+              "parentUUID": "9309df6c-1241-4d39-9f02-aadf480e3bc9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checkout com sucesso usando directBankTransfer",
+              "fullTitle": "Testes de Checkout Checkout com sucesso usando directBankTransfer",
+              "timedOut": null,
+              "duration": 4711,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Preencher as informações paga Pagamento e salvar\n(0, _checkout_page.preencherFirstName)(_faker.faker.person.firstName());\n(0, _checkout_page.preencherLastName)(_faker.faker.person.lastName());\n(0, _checkout_page.preencherCompany)(_faker.faker.company.name());\n(0, _checkout_page.preencherEmail)(_faker.faker.internet.email());\n(0, _checkout_page.selecionarCountry)(1);\n(0, _checkout_page.selecionarCity)(2);\n(0, _checkout_page.preencherZipCode)(_faker.faker.string.numeric(9));\n(0, _checkout_page.preencherFullAdress)(`${_faker.faker.location.street()}, ${_faker.faker.location.buildingNumber()}, ${_faker.faker.location.secondaryAddress()}`);\n(0, _checkout_page.preencherAdicionalNotes)(_faker.faker.lorem.lines({\n  min: 1,\n  max: 3\n}));\n(0, _checkout_page.marcarSalvarDados)();\n(0, _checkout_page.clicarSalvar)();\n//Escolher a opção de pagamento validar ela e finalizar pedido\n(0, _checkout_page.selecionarMetodoPagamento)(metodo);\n(0, _checkout_page.validarSelecaoMetodoPagamento)(metodo);\n(0, _checkout_page.placeOrder)();\n(0, _checkout_page.validarPedidoSucesso)();",
+              "err": {},
+              "uuid": "35c41300-6334-46ef-be1a-8401db993219",
+              "parentUUID": "9309df6c-1241-4d39-9f02-aadf480e3bc9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c8f0d2a7-33e8-464f-bc4c-fd01d04c7a6a",
+            "d6dcc9b7-f9d8-45f5-8cc8-6a7f22658a56",
+            "35c41300-6334-46ef-be1a-8401db993219"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13564,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "quiet": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
