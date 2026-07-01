@@ -10,7 +10,7 @@ Projeto desenvolvido para demonstrar boas práticas de automação de testes Web
 ![Node](https://img.shields.io/badge/Node.js-20.x-339933?logo=node.js&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black)
 ![GitHub Actions](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
+[![License: MIT](https://img.shields.io/github/license/Bruno-Dotto/Automacao-Web-Cypress)](LICENSE)
 
 ---
 
