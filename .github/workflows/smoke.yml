@@ -4,6 +4,11 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 concurrency:
   group: cypress-${{ github.ref }}
   cancel-in-progress: true
@@ -11,6 +16,10 @@ concurrency:
 jobs:
   smoke-tests:
     runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout do projeto
@@ -38,6 +47,21 @@ jobs:
       - name: Gerar Relatório HTML
         if: always()
         run: npm run generate-report
+
+      - name: Configurar GitHub Pages
+        if: always()
+        uses: actions/configure-pages@v5
+
+      - name: Upload do site para Pages
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: cypress/reports
+
+      - name: Publicar GitHub Pages
+        if: always()
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Upload Relatório Mochawesome
         if: always()
