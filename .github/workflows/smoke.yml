@@ -2,84 +2,66 @@ name: Cypress Smoke Tests
 
 on:
   push:
+    branches:
+      - '**'
+
   pull_request:
+    branches:
+      - master
+
+  schedule:
+    # Executa todos os dias às 12:00 (Horário de Brasília = 15:00 UTC)
+    - cron: '0 15 * * *'
+
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: cypress-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   smoke-tests:
     runs-on: ubuntu-latest
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      - name: Checkout do projeto
+      - name: 📥 Checkout do código
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: 🟢 Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      - name: Instalar dependências
+      - name: 📦 Instalar dependências
         run: npm ci
 
-      - name: Limpar relatórios antigos
-        run: npm run clean-report
-
-      - name: Executar Smoke Tests
+      - name: 🧪 Executar Smoke Tests
         run: npm run smoke
 
-      - name: Gerar Merge do Mochawesome
+      - name: 📊 Gerar relatório Mochawesome
         if: always()
-        run: npm run merge-report
+        run: npm run report
 
-      - name: Gerar Relatório HTML
+      - name: 📁 Upload do relatório
         if: always()
-        run: npm run generate-report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: cypress/reports
 
-      - name: Configurar GitHub Pages
+      - name: 📄 Configurar GitHub Pages
         if: always()
         uses: actions/configure-pages@v5
 
-      - name: Upload do site para Pages
+      - name: 📤 Upload para GitHub Pages
         if: always()
         uses: actions/upload-pages-artifact@v3
         with:
-          path: cypress/reports
+          path: ./cypress/reports
 
-      - name: Publicar GitHub Pages
+      - name: 🚀 Publicar GitHub Pages
         if: always()
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Upload Relatório Mochawesome
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: Mochawesome-Report
-          path: cypress/reports
-
-      - name: Upload Screenshots
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: Screenshots
-          path: cypress/screenshots
-
-      - name: Upload Videos
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: Videos
-          path: cypress/videos
