@@ -1,0 +1,201 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-01T00:24:44.986Z",
+    "end": "2026-07-01T00:24:51.145Z",
+    "duration": 6159,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a6decb23-6be5-451a-b81a-0b78c4d36102",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Teste-login.cy.js",
+      "file": "cypress\\e2e\\Teste-login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "81b4a4d9-ad94-4609-9b5e-bc2a133fc4f2",
+          "title": "Testes de Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login com Sucesso",
+              "fullTitle": "Testes de Login Login com Sucesso",
+              "timedOut": null,
+              "duration": 1535,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _login_page.preencherEmail)(_faker.faker.internet.email());\n(0, _login_page.preencherSenha)(_faker.faker.string.numeric(6));\n(0, _login_page.clicarLogin)();\n(0, _login_page.validarMensagem)('loginSucesso');",
+              "err": {},
+              "uuid": "0894628f-0914-489d-9a95-5273d0ba1e5d",
+              "parentUUID": "81b4a4d9-ad94-4609-9b5e-bc2a133fc4f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login com E-mail Inválido",
+              "fullTitle": "Testes de Login Login com E-mail Inválido",
+              "timedOut": null,
+              "duration": 1011,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _login_page.preencherEmail)(_faker.faker.string.numeric(6));\n(0, _login_page.preencherSenha)(_faker.faker.string.numeric(6));\n(0, _login_page.clicarLogin)();\n(0, _login_page.validarMensagem)('emailInvalido');",
+              "err": {},
+              "uuid": "d8c705f3-81a4-4b38-b89d-5ae2b602da69",
+              "parentUUID": "81b4a4d9-ad94-4609-9b5e-bc2a133fc4f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login com Senha Inválida",
+              "fullTitle": "Testes de Login Login com Senha Inválida",
+              "timedOut": null,
+              "duration": 1167,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _login_page.preencherEmail)(_faker.faker.internet.email());\n(0, _login_page.preencherSenha)(_faker.faker.string.numeric(4));\n(0, _login_page.clicarLogin)();\n(0, _login_page.validarMensagem)('senhaInvalida');",
+              "err": {},
+              "uuid": "00c4a62e-f87d-4906-b79f-84eb071d744c",
+              "parentUUID": "81b4a4d9-ad94-4609-9b5e-bc2a133fc4f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login com E-mail Vazio",
+              "fullTitle": "Testes de Login Login com E-mail Vazio",
+              "timedOut": null,
+              "duration": 717,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _login_page.preencherSenha)(_faker.faker.string.numeric(6));\n(0, _login_page.clicarLogin)();\n(0, _login_page.validarMensagem)('emailInvalido');",
+              "err": {},
+              "uuid": "815fa13e-cda7-4f81-9898-d25c8902d94e",
+              "parentUUID": "81b4a4d9-ad94-4609-9b5e-bc2a133fc4f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login com Senha Vazia",
+              "fullTitle": "Testes de Login Login com Senha Vazia",
+              "timedOut": null,
+              "duration": 945,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _login_page.preencherEmail)(_faker.faker.internet.email());\n(0, _login_page.clicarLogin)();\n(0, _login_page.validarMensagem)('senhaInvalida');",
+              "err": {},
+              "uuid": "c6d46fb7-5b3f-4fe6-9d82-89f1a7dcfd06",
+              "parentUUID": "81b4a4d9-ad94-4609-9b5e-bc2a133fc4f2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve abrir a tela de cadastro",
+              "fullTitle": "Testes de Login Deve abrir a tela de cadastro",
+              "timedOut": null,
+              "duration": 655,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _login_page.criarConta)();\n(0, _login_page.validarTelaCadastro)();",
+              "err": {},
+              "uuid": "2b71223d-c415-43c4-9a1b-ecff4d129efd",
+              "parentUUID": "81b4a4d9-ad94-4609-9b5e-bc2a133fc4f2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0894628f-0914-489d-9a95-5273d0ba1e5d",
+            "d8c705f3-81a4-4b38-b89d-5ae2b602da69",
+            "00c4a62e-f87d-4906-b79f-84eb071d744c",
+            "815fa13e-cda7-4f81-9898-d25c8902d94e",
+            "c6d46fb7-5b3f-4fe6-9d82-89f1a7dcfd06",
+            "2b71223d-c415-43c4-9a1b-ecff4d129efd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6030,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "quiet": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

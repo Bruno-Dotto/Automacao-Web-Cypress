@@ -1,0 +1,220 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-01T00:32:55.133Z",
+    "end": "2026-07-01T00:33:00.587Z",
+    "duration": 5454,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6a6b283b-b959-4fc0-b37f-6649d8960804",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Comandos-basicos-do-cypress.cy.js",
+      "file": "cypress\\e2e\\Comandos-basicos-do-cypress.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fe17c917-53c7-4007-b4db-311a04dca070",
+          "title": "Comandos Básicos do Cypress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Abrir uma URL",
+              "fullTitle": "Comandos Básicos do Cypress Abrir uma URL",
+              "timedOut": null,
+              "duration": 908,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://automationpratice.com.br/login');",
+              "err": {},
+              "uuid": "7612e075-ac32-4e54-84c3-7011531a6027",
+              "parentUUID": "fe17c917-53c7-4007-b4db-311a04dca070",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Encontrar Elementos",
+              "fullTitle": "Comandos Básicos do Cypress Encontrar Elementos",
+              "timedOut": null,
+              "duration": 807,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://automationpratice.com.br/login');\n//get()\ncy.get('#user');\n//find() - Usa depois que diminui o escopo com o get()\ncy.get('.mc-form').find('.form-control');\ncy.get('.mc-form').find('.form-control').type('meu.emaul@teste.com.br{enter}'); //Assim ele já simula o click no enter do teclado\n//contais() - encontra um elemento pelo texto!\ncy.get('.mc-form').contains('Send');",
+              "err": {},
+              "uuid": "7f927d73-6947-45ca-a479-e956beb582bb",
+              "parentUUID": "fe17c917-53c7-4007-b4db-311a04dca070",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Preencher um Campo",
+              "fullTitle": "Comandos Básicos do Cypress Preencher um Campo",
+              "timedOut": null,
+              "duration": 887,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://automationpratice.com.br/login');\ncy.get('#user').type('teste@teste.com.br');\ncy.get('#password').type('123456');",
+              "err": {},
+              "uuid": "be15657c-4991-49df-9f20-e96ac6c7d4d9",
+              "parentUUID": "fe17c917-53c7-4007-b4db-311a04dca070",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Click no Elemento",
+              "fullTitle": "Comandos Básicos do Cypress Click no Elemento",
+              "timedOut": null,
+              "duration": 649,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://automationpratice.com.br/login');\ncy.get('#btnLogin').click();\ncy.get('#btnLogin').click(10, 10); //Clica em uma coordenada especifica do elemento\ncy.get('#btnLogin').rightclick(); //Clica com o botão direito\ncy.get('#btnLogin').dblclick(); //Double click",
+              "err": {},
+              "uuid": "c6a4c8dd-d897-46b1-b3de-d02126ed1957",
+              "parentUUID": "fe17c917-53c7-4007-b4db-311a04dca070",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Select/Dropdown",
+              "fullTitle": "Comandos Básicos do Cypress Select/Dropdown",
+              "timedOut": null,
+              "duration": 621,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://automationpratice.com.br/checkout-one');\ncy.get('#country').select(1); //Seleciona o primeiro elemento da caixa de seleção\ncy.get('#country').select(2); //Seleciona o segundo elemento da caixa de seleção",
+              "err": {},
+              "uuid": "4cc9a0e1-9693-48e0-af59-1ee64ef5767e",
+              "parentUUID": "fe17c917-53c7-4007-b4db-311a04dca070",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checkbox/Radio",
+              "fullTitle": "Comandos Básicos do Cypress Checkbox/Radio",
+              "timedOut": null,
+              "duration": 496,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://automationpratice.com.br/checkout-one');\ncy.get('#materialUnchecked').check(); //Marca o item da Checkbox\ncy.get('#materialUnchecked').uncheck(); //Desmarca o Item da Checkbox",
+              "err": {},
+              "uuid": "ebf9bca1-f6e7-437e-bf3a-3897566073fc",
+              "parentUUID": "fe17c917-53c7-4007-b4db-311a04dca070",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validar um Elemento",
+              "fullTitle": "Comandos Básicos do Cypress Validar um Elemento",
+              "timedOut": null,
+              "duration": 957,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://automationpratice.com.br/login');\ncy.get('#user').type('teste@teste.com.br');\ncy.get('#password').type('123456');\ncy.get('#btnLogin').click();\ncy.get('#swal2-title').should('be.visible').should('have.text', 'Login realizado'); //Valida se o elemento está visível e se contém o texto esperado",
+              "err": {},
+              "uuid": "4c8a5a9e-e211-41a5-a685-77c6e279b97e",
+              "parentUUID": "fe17c917-53c7-4007-b4db-311a04dca070",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7612e075-ac32-4e54-84c3-7011531a6027",
+            "7f927d73-6947-45ca-a479-e956beb582bb",
+            "be15657c-4991-49df-9f20-e96ac6c7d4d9",
+            "c6a4c8dd-d897-46b1-b3de-d02126ed1957",
+            "4cc9a0e1-9693-48e0-af59-1ee64ef5767e",
+            "ebf9bca1-f6e7-437e-bf3a-3897566073fc",
+            "4c8a5a9e-e211-41a5-a685-77c6e279b97e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5325,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "quiet": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

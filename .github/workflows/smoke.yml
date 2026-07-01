@@ -2,16 +2,84 @@ name: Cypress Smoke Tests
 
 on:
   push:
-    branches:
-      - feature/CI-CD
+  pull_request:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: cypress-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  cypress-run:
+  smoke-tests:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-      - uses: cypress-io/github-action@v7
+    steps:
+      - name: Checkout do projeto
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
-          command: npx cypress run --expose grepTags=@smoke,grepFilterSpecs=true,grepOmitFiltered=true
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Limpar relatórios antigos
+        run: npm run clean-report
+
+      - name: Executar Smoke Tests
+        run: npm run smoke
+
+      - name: Gerar Merge do Mochawesome
+        if: always()
+        run: npm run merge-report
+
+      - name: Gerar Relatório HTML
+        if: always()
+        run: npm run generate-report
+
+      - name: Configurar GitHub Pages
+        if: always()
+        uses: actions/configure-pages@v5
+
+      - name: Upload do site para Pages
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: cypress/reports
+
+      - name: Publicar GitHub Pages
+        if: always()
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Upload Relatório Mochawesome
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mochawesome-Report
+          path: cypress/reports
+
+      - name: Upload Screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Screenshots
+          path: cypress/screenshots
+
+      - name: Upload Videos
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Videos
+          path: cypress/videos
